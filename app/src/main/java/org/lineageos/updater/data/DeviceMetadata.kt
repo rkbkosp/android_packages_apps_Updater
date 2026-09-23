@@ -10,10 +10,9 @@ data class DeviceMetadata(
     val device: String? = null,
     val forum: String? = null,
     val telegram: String = DEFAULT_TELEGRAM,
-    val paypal: String = DEFAULT_PAYPAL,
+    val paypal: String? = null,
 ) {
     companion object {
         const val DEFAULT_TELEGRAM = "https://t.me/crDroidAndroid"
-        const val DEFAULT_PAYPAL = "https://crdroid.net/donate"
     }
 }

@@ -65,7 +65,7 @@ class UpdatesRepository(
             } ?: DeviceMetadata.DEFAULT_TELEGRAM,
             paypal = networkUpdatesRaw.firstNotNullOfOrNull {
                 it.paypal?.takeIf(String::isNotBlank)
-            } ?: DeviceMetadata.DEFAULT_PAYPAL,
+            },
         )
 
         val networkUpdates = networkUpdatesRaw
