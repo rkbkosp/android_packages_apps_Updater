@@ -62,7 +62,7 @@ class UpdatesRepository(
             },
             telegram = networkUpdatesRaw.firstNotNullOfOrNull {
                 it.telegram?.takeIf(String::isNotBlank)
-            } ?: DeviceMetadata.DEFAULT_TELEGRAM,
+            },
             paypal = networkUpdatesRaw.firstNotNullOfOrNull {
                 it.paypal?.takeIf(String::isNotBlank)
             },
