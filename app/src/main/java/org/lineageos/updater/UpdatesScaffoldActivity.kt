@@ -266,7 +266,15 @@ private fun UpdatesInformationPane(
     device: String?,
     modifier: Modifier = Modifier,
 ) {
-    DeviceInfoBanner(modifier = modifier, maintainer = maintainer, device = device)
+    // The server advertises a maintainer only while it lists an update. Fall back to the
+    // device tree's value so the build's maintainer is shown even with an empty response.
+    val localMaintainer = stringResource(R.string.updater_maintainer_local)
+    DeviceInfoBanner(
+        modifier = modifier,
+        maintainer = maintainer?.takeIf { it.isNotBlank() }
+            ?: localMaintainer.takeIf { it.isNotBlank() },
+        device = device,
+    )
 }
 
 @Composable
